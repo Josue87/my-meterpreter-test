@@ -21,11 +21,9 @@ class BoomerpreterServer:
     def send_data(self, data):
         try:
             data = json.dumps(data)
-            data = data.encode()
         except Exception as e:
-            data = str(e)
-            data = json.dumps(data)
-            data = data.encode()
+            data = json.dumps(str(e))
+        data = data.encode()
         self.socket.send(data)
     
     def run(self):
