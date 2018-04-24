@@ -24,7 +24,6 @@ class Boomerpreter:
             data["args"] = msg[1:]
                 
         self.current_session.send((json.dumps(data)).encode())
-        return True
         
     def recv_msg(self):
         data =  self.current_session.recv(4096)
